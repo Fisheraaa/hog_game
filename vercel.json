@@ -1,14 +1,1 @@
-{
-  "builds": [
-    {
-      "src": "index.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "index.py"
-    }
-  ]
-}
+{"buildCommand": "pip install -r requirements.txt", "installCommand": "pip install -r requirements.txt", "outputDirectory": ".vercel/output", "functions": {"api/index.py": {"runtime": "python3.9"}}}
