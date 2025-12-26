@@ -1,1 +1,15 @@
-{"framework": null, "installCommand": "pip install -r requirements.txt", "functions": {"api/index.py": {"runtime": "python@3.9", "maxDuration": 10}}, "rewrites": [{"source": "/(.*)", "destination": "/api/index"}], "version": 2}
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
+    }
+  ]
+}
