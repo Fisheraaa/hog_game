@@ -4,16 +4,13 @@ import os
 import logging
 from contextlib import redirect_stdout
 
-from gui_files.common_server import route, start
+from gui_files.common_server import route, start_server
 
 import hog
 import dice
 import default_graphics
 
-PORT = 31415
-DEFAULT_SERVER = "https://hog.cs61a.org"
 GUI_FOLDER = "gui_files/"
-PATHS = {}
 
 
 class HogLoggingException(Exception):
@@ -152,5 +149,5 @@ def trace_play(play, strategy0, strategy1, update, score0, score1, dice, goal):
     return s0, s1, game_trace
 
 
-if __name__ == "__main__" or "gunicorn" in os.environ.get("SERVER_SOFTWARE", ""):
-    app = start(PORT, DEFAULT_SERVER, GUI_FOLDER)
+# 创建Flask应用供Vercel使用
+app = start_server()
